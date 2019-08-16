@@ -1,15 +1,20 @@
-const latinWords = ["Totam", "ut", "odit","quis", "Maiores", "unde", "EX", "EST", "corporis"]
+const latinWords = ["Totam", "ut", "odit","quis", "Maiores", "unde", "EX", "EST", "corporis"];
 
-for (let x = 0; x < latinWords.length; x++) {
-    // console.log(latinWords[x])
+const isLongWord = word => word.length > 4
+const isLowerCase = word => word.toLowerCase() == word
 
-    if ((latinWords[x].length > 4) && (latinWords[x].toLowerCase() == latinWords[x])) {
+function testWord(word) {
+    // console.log(word)
+
+    if (isLongWord(word) && isLowerCase(word)) {
         console.log('long and lowercase');
-    } else if (latinWords[x].toLowerCase() == latinWords[x]) {
+    } else if (isLowerCase(word)) {
         console.log('lowercase');
-    } else if (latinWords[x].length > 4) {
+    } else if (isLongWord(word)) {
         console.log('long');
     } else {
-        console.log(latinWords[x]);
+        console.log(word);
     }
 }
+
+latinWords.forEach(testWord);
